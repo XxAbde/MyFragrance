@@ -1,0 +1,2 @@
+# MyFragrance
+ MyFragrance est un site e-commerce minimaliste développé en PHP permettant aux utilisateurs de découvrir, filtrer et acheter des parfums. Chaque fiche produit contient une description détaillée incluant les notes olfactives (tête, cœur, fond), le type de parfum (eau de toilette, eau de parfum, etc.) et une image. Les utilisateurs peuvent ajouter des parfums à leur panier, les commander (paiement fictif), et enregistrer leurs parfums favoris. Un tableau de bord admin permet d’ajouter/modifier/supprimer les produits
