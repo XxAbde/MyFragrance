@@ -9,7 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch cart items
 $stmt = $pdo->prepare('
     SELECT cart.id AS cart_id, products.name, products.image, products.price, cart.quantity 
     FROM cart 
@@ -69,7 +68,7 @@ $cart_items = $stmt->fetchAll();
                 </tbody>
             </table>
 
-            <!-- Buy All Section -->
+
             <form action="buy.php" method="POST" style="margin-top: 20px;">
                 <h3>Choose Payment Method:</h3>
                 <label>

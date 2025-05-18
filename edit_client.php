@@ -8,7 +8,6 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
-    // Fetch client details
     $client_id = $_GET['id'];
     $stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');
     $stmt->execute([$client_id]);
@@ -19,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         exit();
     }
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    // Update client details
     $client_id = $_POST['id'];
     $email = $_POST['email'];
 

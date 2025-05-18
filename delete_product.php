@@ -10,7 +10,6 @@ if (!isset($_SESSION['admin_id'])) {
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
 
-    // Delete the product
     $stmt = $pdo->prepare('DELETE FROM products WHERE id = ?');
     $stmt->execute([$product_id]);
 

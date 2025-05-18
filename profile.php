@@ -1,15 +1,12 @@
 <?php
-// User profile (profile.php)
 require 'db.php';
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
-// Fetch user information from the database
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare('SELECT username, email, role, created_at FROM users WHERE id = ?');
 $stmt->execute([$user_id]);

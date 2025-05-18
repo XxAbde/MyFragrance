@@ -10,7 +10,6 @@ if (!isset($_SESSION['admin_id'])) {
 if (isset($_GET['id'])) {
     $client_id = $_GET['id'];
 
-    // Delete the client
     $stmt = $pdo->prepare('DELETE FROM users WHERE id = ?');
     $stmt->execute([$client_id]);
 

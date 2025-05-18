@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-// Fetch all products
 $stmt = $pdo->query('SELECT * FROM products');
 $products = $stmt->fetchAll();
 ?>

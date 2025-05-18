@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-// Fetch all clients
 $stmt = $pdo->prepare('SELECT * FROM users WHERE role = ?');
 $stmt->execute(['client']);
 $clients = $stmt->fetchAll();

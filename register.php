@@ -1,5 +1,4 @@
 <?php
-// Register functionality (register.php)
 require 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,12 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Register - MyFragrance</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* Styling for the Registration Page */
         .register-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px); /* Adjust height accounting for header/footer */
+            height: calc(100vh - 60px);
             padding: 20px;
         }
 

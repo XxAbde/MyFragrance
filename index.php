@@ -2,48 +2,42 @@
 require 'db.php';
 session_start();
 
-// Fetch filters and search input
 $search = trim($_GET['search_keyword'] ?? '');
 $price_order = $_GET['price_order'] ?? '';
 $brand = $_GET['brand'] ?? '';
 $gender = $_GET['gender'] ?? '';
 
-// Start building the query
+
 $query = "SELECT * FROM products WHERE 1=1";
 $params = [];
 
-// Search by keyword
 if (!empty($search)) {
     $query .= " AND (name LIKE ? OR category LIKE ? OR description LIKE ?)";
     $searchTerm = "%$search%";
     array_push($params, $searchTerm, $searchTerm, $searchTerm);
 }
 
-// Filter by brand
 if (!empty($brand)) {
     $query .= " AND brand = ?";
     $params[] = $brand;
 }
 
-// Filter by gender
 if (!empty($gender)) {
     $query .= " AND gender = ?";
     $params[] = $gender;
 }
 
-// Sort by price
 if (!empty($price_order) && in_array($price_order, ['asc', 'desc'])) {
     $query .= " ORDER BY price $price_order";
 } else {
-    $query .= " LIMIT 10"; // default limit
+    $query .= " LIMIT 10"; 
 }
 
-// Execute query
 $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $products = $stmt->fetchAll();
 
-// Get brand list for dropdown
+
 $brands_stmt = $pdo->query("SELECT DISTINCT brand FROM products");
 $brands = $brands_stmt->fetchAll();
 ?>
@@ -160,15 +154,15 @@ $brands = $brands_stmt->fetchAll();
 <div class="container">
     <h2>Browse Our Collection</h2>
 
-    <!-- Search Form -->
+    
     <form method="GET" action="index.php" class="search-form">
         <input type="text" name="search_keyword" placeholder="Search..." value="<?php echo htmlspecialchars($search); ?>">
         <button type="submit">Search</button>
     </form>
 
-    <!-- Filter Form -->
+
     <form method="GET" action="index.php" class="filter-form">
-        <!-- Keep search value during filtering -->
+        
         <input type="hidden" name="search_keyword" value="<?php echo htmlspecialchars($search); ?>">
 
         <select name="brand">

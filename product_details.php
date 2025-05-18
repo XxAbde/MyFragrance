@@ -9,7 +9,6 @@ if (!isset($_GET['id'])) {
 
 $product_id = $_GET['id'];
 
-// Fetch product details
 $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->execute([$product_id]);
 $product = $stmt->fetch();

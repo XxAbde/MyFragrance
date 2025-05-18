@@ -9,7 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch the user's order history
 $stmt = $pdo->prepare('
     SELECT orders.id AS order_id, products.name, products.image, orders.quantity, orders.total_price, orders.payment_method, orders.created_at 
     FROM orders 

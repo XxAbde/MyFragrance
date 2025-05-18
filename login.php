@@ -1,5 +1,4 @@
 <?php
-// Login functionality (login.php)
 require 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,28 +28,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login - MyFragrance</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* Remove global centering from body */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
         }
-
-        /* Add a wrapper for the login form */
         .login-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 100px); /* Adjust based on header/footer height */
+            height: calc(100vh - 100px); 
         }
 
         .container {
-            text-align: center; /* Align text in the center */
-            background: #fff; /* Optional: Add a background color to the container */
+            text-align: center; 
+            background: #fff; 
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow effect */
-            width: 300px; /* Optional: Set a fixed width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            width: 300px; 
         }
 
         input, button {
@@ -75,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <?php include 'includes/header.php'; ?> <!-- Include the header -->
+    <?php include 'includes/header.php'; ?> 
 
-    <!-- Wrapper for centering the login form -->
+    
     <div class="login-wrapper">
         <div class="container">
             <h2>Login</h2><br>
@@ -90,6 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <?php include 'includes/footer.php'; ?> <!-- Include the footer -->
+    <?php include 'includes/footer.php'; ?> 
 </body>
 </html>

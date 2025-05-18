@@ -7,11 +7,10 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-// Handle GET request to fetch product details
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $product_id = $_GET['id'];
 
-    // Fetch product details
+
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$product_id]);
     $product = $stmt->fetch();
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     }
 }
 
-// Handle POST request to update product details
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $product_id = $_POST['id'];
     $name = $_POST['name'];
@@ -33,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $quantity = $_POST['quantity'];
     $description = $_POST['description'];
 
-    // Update product details
     $stmt = $pdo->prepare('UPDATE products SET name = ?, category = ?, brand = ?, gender = ?, price = ?, quantity = ?, description = ? WHERE id = ?');
     $stmt->execute([$name, $category, $brand, $gender, $price, $quantity, $description, $product_id]);
 
